@@ -1,0 +1,88 @@
+body {
+    background-color: #6319ec;
+    color: white;
+}
+
+.siteHeader {
+    padding: 8px 16px;
+}
+
+.siteHeader > h1 {
+    font-size: 32px;
+}
+
+.calendar {
+    background-color: white;
+    margin: 16px;
+    border-radius: 24px;
+    /*color: black;*/
+    color: #333;
+    margin-top: 32px;
+}
+
+.calendar-header {
+    text-align: center;
+    padding: 16px 0;
+    font-size: 18px;
+}
+
+.calendar-header > time {
+}
+
+.calendar-weekdays {
+    display: flex;
+}
+
+.calendar-weekdays > li {
+    width: 14.2857%;
+    text-align: center;
+}
+
+.calendar-days {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calendar-days > li {
+    width: 14.2857%;
+    text-align: center;
+    height: 42px;
+    line-height: 42px;
+    /*border: 1px solid red;*/
+}
+
+.calendar-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+.calendar-actions button{
+    font-size: 12px;
+    height: 24px;
+    /*padding: 12px;*/
+}
+
+.calendar-actions-left {
+    margin-left: 8px;
+}
+
+.calendar-actions-left > button {
+}
+
+.calendar-actions-right {
+    /*display: flex;*/
+}
+
+.calendar-actions-right > button {
+}
+
+
+
+
+
+
+
+
+
+
+
