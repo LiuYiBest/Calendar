@@ -6,6 +6,8 @@ render(cuttrent)
 
 get('#prevMonth').onclick = () => {
     render(new Date(cuttrent - 86400 * 1000 * 30))
+    const firstDayOfCurrentMonth = new Date(currentTime.getUTCFullYear(), currentTime.getMonth(), 1)   //月初
+    render(new Date(firstDayOfCurrentMonth - 86400 * 1000))
 }
 get('#nextMonth').onclick = () => {
     render(new Date(cuttrent - 0 + 86400 * 1000 * 30))
@@ -58,11 +60,23 @@ function render(tiem) {
             days.prepend(li)
         }
         const liList = []
+        const now = new Date()  //今天
+        let selectedLi
         //这个月几天
         for (let i = 1; i <= MonthLastDays; i++) {
             const li = document.createElement('li')
             li.textContent = i
-            liList.push(li)
+            console.log('日期',i)
+            if (i === now.getDate() && month === now.getMonth() + 1 && year === now.getFullYear()) {
+                console.log('today',i)
+                li.classList.add("calendar-days-today")
+            }
+            li.onclick=()=>{
+                if(selectedLi){selectedLi.classList.remove("calendar-days-selected")}
+                li.classList.add("calendar-days-selected")
+                selectedLi = li
+            }
+            // liList.push(li)
             days.append(li)
         }
         //月末星期几之后的铺垫
