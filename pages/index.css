@@ -59,7 +59,9 @@ body {
     border-radius: 8px;
     outline: 1px solid #ffd32b;  //outline不占用体积
 }
-
+.calendar-days-disabled{
+    color: #999;
+}
 .calendar-actions {
     display: flex;
     justify-content: space-between;
