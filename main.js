@@ -61,7 +61,7 @@ function render(tiem) {
             li.textContent = d.getDate()
             days.prepend(li)
             li.classList.add('calendar-days-disabled')
-            n+=1
+            n += 1
         }
         const liList = []
         const now = new Date()  //今天
@@ -69,6 +69,10 @@ function render(tiem) {
         //这个月几天
         for (let i = 1; i <= MonthLastDays; i++) {
             const li = document.createElement('li')
+            const key = `${year}-${month}-${i}`
+            const events = window.data[key]  //当天的事件
+            console.log('key', key)
+            console.log('window.data[key]', window.data[key])
             li.textContent = i
             console.log('日期', i)
             if (i === now.getDate() && month === now.getMonth() + 1 && year === now.getFullYear()) {
@@ -81,8 +85,24 @@ function render(tiem) {
                 }
                 li.classList.add("calendar-days-selected")
                 selectedLi = li
+                if (events) {
+                    const fragment =  document.createDocumentFragment()
+                    events.map(event=>{
+                        const div = document.createElement('div')
+                        div.classList.add('events-item')
+                        console.log('div111',div)
+                        div.textContent = event
+                        fragment.append(div)
+                    })
+                    get('#events').innerHTML = ""
+                    get('#events').append(fragment)
+                }else {
+                    get('#events').innerHTML = "<div>无</div>"
+                }
             }
-            // liList.push(li)
+            if (events) {
+                li.classList.add('calendar-days-hasEvents')
+            }
             days.append(li)
             n += 1
         }
