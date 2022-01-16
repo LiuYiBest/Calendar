@@ -1,5 +1,4 @@
 //初始化时间
-
 let currentTime = new Date()
 // const currentTime = new Date(2022,10,1)
 render(currentTime)
